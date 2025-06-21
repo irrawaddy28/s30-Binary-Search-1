@@ -37,8 +37,8 @@ class Solution:
         found = False
         while s <= e: # O(log MN)
             mid = s + (e-s)//2 # same as int((s+e)/2) but prevents overflow
-            row = mid // M
-            col = mid % M
+            row = mid // N
+            col = mid % N
             if matrix[row][col] == target:
                 found = True
                 break

@@ -29,32 +29,32 @@ Solution:
     Time: O(2logN), Space: O(1)
 
     2. Method 2 (optimal): Observe the following rotations of the sorted array
-    [0,1,2,4,5,6,7]:
-    R1 = [7,0,1,2,4,5,6] # mid = 2, [7,0,1] unsorted, [2,4,5,6] = sorted
-    R2 = [6,7,0,1,2,4,5] # mid = 1, left = unsorted, right = sorted
-    R3 = [5,6,7,0,1,2,4] # mid = 0, left = sorted, right = sorted
-    R4 = [4,5,6,7,0,1,2] # mid = 7, left = sorted, right = unsorted
-    R5 = [2,4,5,6,7,0,1] # mid = 6, left = sorted, right = unsorted
-    R6 = [1,2,4,5,6,7,0] # mid = 5, left = sorted, right = unsorted
-    R7 = [0,1,2,4,5,6,7] # mid = 4, left = sorted, right = sorted
-    Hence, in rotated sorted arrays, at least one half is sorted.
-    Consider R3 and let A=R3, tgt=7.
-    s=0, e=6, mid=3
-    A[mid]=0
-    check 1: tgt is at mid?
-                if A[mid] == tgt: # 0 == 7?
-                found tgt
-    check 2: right sorted?
-                A[mid] < tgt <= A[e] # 0 < 7 <= 4?
-                yes: s = mid + 1 # go right into right sorted array
-                no:  e = mid - 1 # go left into left unsorted array
-    check 3: left sorted?
-                A[s] <= tgt < A[mid] # 5 <= 7 < 0
-                yes: e = mid - 1 # go left into left sorted array
-                no:  s = mid + 1 # go right into right unsorted array
+        [0,1,2,4,5,6,7]:
+        R1 = [7,0,1,2,4,5,6] # mid = 2, [7,0,1,2] unsorted, [2,4,5,6] = sorted
+        R2 = [6,7,0,1,2,4,5] # mid = 1, left = unsorted, right = sorted
+        R3 = [5,6,7,0,1,2,4] # mid = 0, left = sorted, right = sorted
+        R4 = [4,5,6,7,0,1,2] # mid = 7, left = sorted, right = sorted
+        R5 = [2,4,5,6,7,0,1] # mid = 6, left = sorted, right = unsorted
+        R6 = [1,2,4,5,6,7,0] # mid = 5, left = sorted, right = unsorted
+        R7 = [0,1,2,4,5,6,7] # mid = 4, left = sorted, right = sorted
+        Hence, in rotated sorted arrays, at least one half is sorted.
+        Consider R3 and let A=R3, tgt=7.
+        s=0, e=6, mid=3
+        A[mid]=0
+        check 1: tgt is at mid?
+                 if A[mid] == tgt: # 0 == 7?
+                    found tgt
+        check 2: right sorted?
+                 A[mid] < tgt <= A[e] # 0 < 7 <= 4?
+                 yes: s = mid + 1 # go right into right sorted array
+                 no:  e = mid - 1 # go left into left unsorted array
+        check 3: left sorted?
+                 A[s] <= tgt < A[mid] # 5 <= 7 < 0
+                 yes: e = mid - 1 # go left into left sorted array
+                 no:  s = mid + 1 # go right into right unsorted array
 
-    Time: O(log N), Space: O(1)
-    https://youtu.be/8hyOCScF1q0?t=3107
+        Time: O(log N), Space: O(1)
+        https://youtu.be/8hyOCScF1q0?t=3107
     '''
 class Solution:
     def search(self, A, tgt) -> int:

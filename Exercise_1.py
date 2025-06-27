@@ -22,7 +22,7 @@
 
         2. Method 2: We can imagine that the elements are arranged in a 1D array of size MN, i.e. 0 <= k <= MN-1. To map the 1D index to a pair of indices (i,j) in 2D array, we can do:
         i = k // M, j = k % M
-        For eg, for a 2D array of 4x3 elements, the corresponding 1D array is of size 12. Then the element at k=9 (10th element) of 1D array can be mapped to row = 9 // 4 = 2, col = 9 % 4 = 1.
+        For eg, for a 2D array of 3x4 elements (M=3, N=4), the corresponding 1D array is of size 12. Then the element at k=9 (10th element) of 1D array can be mapped to row = 9 // 4 = 2, col = 9 % 4 = 1.
         Thus, 9 -> (2,1)
         Time: O(log MN), Space: O(1)
         https://youtu.be/8hyOCScF1q0?t=372
